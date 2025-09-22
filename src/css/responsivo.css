@@ -1,4 +1,4 @@
-@media(max-width:769px){
+@media(max-width:850px){
 main::after{
     background-color: linear-gradient(0deg, #000 20%, rgba(0, 0, 0, 0.189) 65%) no-repeat;
     width: 100vw;
