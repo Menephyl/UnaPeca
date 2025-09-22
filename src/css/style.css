@@ -86,13 +86,12 @@ margin-bottom: 35px;
    max-width: 70px;
    max-height: 60px;
    border: none;
-   background-color: none;
    cursor: pointer;
      background-color: black;
       border-radius: 50%;
 }
 .botao img{
-    background-color: black;
+
    max-width: 70px;
    max-height: 70px;
     border-radius: 50%;
