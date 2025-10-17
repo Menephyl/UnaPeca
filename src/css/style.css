@@ -1,107 +1,170 @@
+/* style.css */
 
-body{
-    background-color: #000;
-    font-family: 'Tagesschrift';
-    overflow: hidden;
-}
-main::after{
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* background-color: #0000003d; */
-    min-height: 100vh;
-    width: 100vw;
-    background: linear-gradient(-233deg, #000 40%, rgba(0, 0, 0, 0.189) 65%) no-repeat;
-    
-}
-main .personagem{
-    display: none;
-    height: 100vh;
-}
-main .selecionado{
-display: block;
-}
-main .personagem .img{
-width: 100%;
-height: 100%;
-object-fit: cover;
+body {
+  background-color: #000;
+  font-family: 'Tagesschrift';
+  overflow: hidden;
 }
 
-.conteudo{
-    position: absolute;
-    top: 0;
-    left: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    max-width: 380px;
-    z-index: 1;
-   
-
+main {
+  position: relative;
 }
 
-.conteudo .nome-personagem{
-    color: aliceblue;
-    font-size: 58px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    
+main::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-233deg, #000 40%, rgba(0, 0, 0, 0.189) 65%) no-repeat;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.conteudo .descricao{
-   
-    color: #ffffff;
-    font-family: 'Times New Roman', Times, serif;
-    padding: 20px;
-    font-size: 16px;
-    line-height: 24px;
+/* fade de todos os personagens */
+main .personagem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
-.conteudo .logo{
-background-image:url("../assets/one-piece-logo.png" );
-background-size: cover;
-width: 230px;
-height: 100px;
-margin-bottom: 35px;
+/* personagem visível */
+main .personagem.selecionado {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.botoes{
-    position: fixed;
-    top: 0;
-    right:0;
-    display: flex;
-    flex-direction: column;
-    background-color: #00000048;
-    min-height: 100vh;
-    justify-content: center;
-    gap: 5px;
-   min-width: 5%;
-    list-style: none;
+/* fade da imagem interna */
+main .personagem .img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s;
 }
 
-.botao{
-   max-width: 70px;
-   max-height: 60px;
-   border: none;
-   cursor: pointer;
-     background-color: black;
-      border-radius: 50%;
+main .personagem.selecionado .img {
+  opacity: 1;
 }
-.botao img{
 
-   max-width: 70px;
-   max-height: 70px;
-    border-radius: 50%;
+.conteudo {
+  position: absolute;
+  top: 0;
+  left: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 380px;
+  z-index: 2;
+}
 
-  
+.conteudo .nome-personagem {
+  color: aliceblue;
+  font-size: 58px;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
-.botao:hover{
-     box-shadow: 0 0 10px #d9d9d9;
+
+.conteudo .descricao {
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease, z-index 0s ease 0.3s;
 }
- .botao.selecionado {
-    transform:  scale(1.2);
-    box-shadow: 0 0 10px #d9d9d9;
+
+/* ao passar o mouse em qualquer área da tela */
+body:hover .conteudo .descricao {
+  z-index: 11;               /* sobrepõe os botões (z-index:10) */
+  transform: translateY(-8px);
 }
+
+.conteudo .logo {
+  background-image: url("../assets/one-piece-logo.png");
+  background-size: cover;
+  width: 230px;
+  height: 100px;
+  margin-bottom: 35px;
+}
+
+/* container de botões */
+.botoes {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.166);
+  min-height: 100vh;
+  justify-content: center;
+  gap: 5px;
+  min-width: 5%;
+  list-style: none;
+  z-index: 10;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* estilo base do botão */
+.botao {
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: #000;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* hover e estado selecionado */
+.botao:hover {
+  opacity: 1;
+  box-shadow: 0 0 10px #d9d9d9;
+}
+
+.botao.selecionado {
+  transform: scale(1.2);
+  opacity: 1;
+  box-shadow: 0 0 10px #d9d9d9;
+}
+
+/* botão no centro da tela
+.botao-central {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+  z-index: 12; /* acima de tudo 
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+  */
+
+/* .botao-central:hover {
+  box-shadow: 0 0 2px #fff;
+}
+  */
