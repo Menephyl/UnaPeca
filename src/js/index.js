@@ -13,6 +13,8 @@ botoes.forEach((botao, indice) => {
     // 2) Adiciona 'selecionado' ao botão e ao personagem correspondentes
     botao.classList.add('selecionado');
     personagens[indice].classList.add('selecionado');
+
+    
   });
 });
 
@@ -22,8 +24,13 @@ setTimeout(() => {
   alert('Clique na logo do One Piece para ver o anime gratuitamente!')
 }, 3000)
 
+const logos = document.querySelectorAll('.conteudo .logo');
 
-const logo = document.querySelector('.logo');
-logo.addEventListener('click', () => {
-  window.open('https://pluto.tv/br/on-demand/series/62716e4481ecb700133b2aae/season/1/episode/62716e5681ecb700133b2df7?msockid=2d42ae3e0dbb68b11449bbdd0cc26942', '_blank');
+logos.forEach(logo => {
+  logo.addEventListener('click', () => {
+    window.open(
+      'https://pluto.tv/br/on-demand/series/62716e4481ecb700133b2aae/season/1/episode/62716e5681ecb700133b2df7?msockid=2d42ae3e0dbb68b11449bbdd0cc26942',
+      '_blank'
+    );
+  });
 });
