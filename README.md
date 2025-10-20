@@ -1,4 +1,4 @@
-
+<img width="1909" height="939" alt="image" src="https://github.com/user-attachments/assets/9fd4981e-a6e5-4bff-94b2-b72f6000f0ee" />
 
 # One Piece Character Selector
 
@@ -20,7 +20,8 @@ Um projeto interativo e responsivo que permite ao usuário explorar personagens 
 - JavaScript (DOM, eventos, manipulação dinâmica)
 
 ## 📸 Demonstração
-![Uploading image.png…]()
+<img width="1909" height="939" alt="image" src="https://github.com/user-attachments/assets/d4575f44-723d-4c9b-91b4-0b2d7392b6b9" />
+
 
 
 -->
