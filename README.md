@@ -20,8 +20,10 @@ Um projeto interativo e responsivo que permite ao usuário explorar personagens 
 - JavaScript (DOM, eventos, manipulação dinâmica)
 
 ## 📸 Demonstração
+![Uploading image.png…]()
 
-![screenshot](./assets/demo.png) <!-- Substitua por uma imagem real se desejar -->
+
+-->
 
 ## 📂 Como usar
 
